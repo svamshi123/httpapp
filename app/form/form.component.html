@@ -1,0 +1,89 @@
+
+  <div class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <h1>Registration Form</h1>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+          <form [formGroup]="signup" (ngSubmit)="onsubmit()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" placeholder="Enter name"
+              id="username"
+              formControlName="username"
+              class="form-control">
+              <span
+              *ngIf="!signup.get('username').valid && signup.get('username').touched" 
+              class="help-block">Please enter valid name</span>  
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" placeholder="Enter-email"
+              id="email"
+              formControlName="email"
+              class="form-control">
+              <span
+              *ngIf="!signup.get('email').valid && signup.get('email').touched" 
+              class="help-block">Please enter valid Email</span>  
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="text" placeholder="Enter Age"
+              id="age"
+              formControlName="age"
+              class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="place">Place</label>
+                <input type="text" placeholder="Enter Place"
+                id="place"
+                formControlName="place"
+                class="form-control">
+              </div>
+            <h3>
+              Gender
+            </h3>
+            <div class="radio" *ngFor="let gender of genders">
+              <label>
+                <input type="radio"
+                formControlName="gender"
+                [value]="gender">{{gender}}
+              </label>
+            </div>
+            <div formArrayName="hobbies">
+              <h2>Enter Hobbies</h2>
+              <button class="btn btn-default" type="button" (click)="onadd()">Add hobbies</button>
+              <div class="form-group"
+              *ngFor="let hobbyControl of signup.get('hobbies').controls; let i = index">
+              <input type="text" class="form-control" [formControlName]="i">
+            </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" size="50px" placeholder="Enter Password"
+                id="password"
+                formControlName="password"
+                class="form-control">
+              </div>
+              <div class="form-group">
+                  <label for="cpassword">Confirm password</label>
+                  <input type="password" size="50px" placeholder="Re-Entre password"
+                  id="cpassword"
+                  formControlName="cpassword"
+                  class="form-control">
+                </div>
+            <span
+            *ngIf=" signup.valid  && !signup.touched " 
+            class="help-block">Choose your option</span>  
+            <br><hr>
+            <button class="btn btn-primary" type="submit"(click)="onadd()">submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+

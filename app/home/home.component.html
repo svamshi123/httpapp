@@ -1,0 +1,37 @@
+<h2>You are Rigesterd successfullly</h2>
+
+<br><hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+<div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" placeholder="Enter name"
+    id="username"
+    formControlName="username"
+    class="form-control">
+    <!--span
+    *ngIf="!signup.get('username').valid && signup.get('username').touched" 
+    class="help-block">Please enter valid name</span> --> 
+  </div>
+  <!--div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" placeholder="Enter-email"
+    id="email"
+    formControlName="email"
+    class="form-control">
+    <span
+    *ngIf="!signup.get('email').valid && signup.get('email').touched" 
+    class="help-block">Please enter valid Email</span>  
+  </div>-->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" size="50px" placeholder="Enter Password"
+    id="password"
+    formControlName="password"
+    class="form-control">
+  </div>
+  <button class="btn btn-primary" type="submit" (click)="onsubmit()">submit</button>
+  </div>
+  </div>
+ 
+  
